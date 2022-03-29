@@ -23,12 +23,12 @@
     return DOMPurify.sanitize(dirty);
   }
 
-  const first = 'Wes';
-  const aboutMe = `I love to do evil <img src="http://unsplash.it/100/100?random" onload="alert('you got hacked');" />`;
+  const pandemic = 'Covid-19';
+  const aboutPandemic = `Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus. <img src="http://unsplash.it/100/100?random" onload="alert('you got hacked');" />`;
 
   const html = sanitize`
-    <h3>${first}</h3>
-    <p>${aboutMe}</p>
+    <h3>${pandemic}</h3>
+    <p>${aboutPandemic}</p>
   `;
 
   const bio = document.querySelector('.bio');

@@ -12,9 +12,8 @@
 </head>
 <body>
 
-  <div class="bio">
-
-  </div>
+<div class="before"> </div>
+<div class="after"> </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/0.8.2/purify.min.js"></script>
 <script>
@@ -24,15 +23,24 @@
   }
 
   const pandemic = 'Covid-19';
-  const aboutPandemic = `Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus. <img src="http://unsplash.it/100/100?random" onload="alert('you got hacked');" />`;
+  const aboutPandemic = `Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus. Click on Image <img src="http://unsplash.it/100/100?random" onclick="alert('you got hacked');" />`;
 
-  const html = sanitize`
+  const html = `
+    <h1>Before adding sanitize</h1>
     <h3>${pandemic}</h3>
     <p>${aboutPandemic}</p>
   `;
 
-  const bio = document.querySelector('.bio');
-  bio.innerHTML = html;
+  const htmlSanitize = sanitize`
+    <h1>After adding sanitize</h1>
+    <h3>${pandemic}</h3>
+    <p>${aboutPandemic}</p>
+  `;
+
+  const before = document.querySelector('.before');
+  const after = document.querySelector('.after');
+  before.innerHTML = html;
+  after.innerHTML = htmlSanitize;
 </script>
 </body>
 </html>
